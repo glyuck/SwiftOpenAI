@@ -593,7 +593,13 @@ final public class DefaultOpenAIAzureService: OpenAIService {
    {
       fatalError("Currently, this API is not supported. We welcome and encourage contributions to our open-source project. Please consider opening an issue or submitting a pull request to add support for this feature.")
    }
-   
+
+   // MARK: Session
+
+   public func createSession(parameters: CreateSessionParameters) async throws -> SessionObject {
+      fatalError("Currently, this API is not supported. We welcome and encourage contributions to our open-source project. Please consider opening an issue or submitting a pull request to add support for this feature.")
+   }
+
    // MARK: Vector Store
 
    public func createVectorStore(

@@ -648,6 +648,16 @@ struct AIProxyService: OpenAIService {
       return try await fetch(debugEnabled: debugEnabled, type: OpenAIResponse<BatchObject>.self, with: request)
    }
 
+   // MARK: Session
+
+   func createSession(
+      parameters: CreateSessionParameters)
+      async throws -> SessionObject
+   {
+      let request = try await OpenAIAPI.session(.create).request(aiproxyPartialKey: partialKey, clientID: clientID, organizationID: organizationID, openAIEnvironment: openAIEnvironment, method: .post, params: parameters, betaHeaderField: Self.assistantsBetaV2)
+      return try await fetch(debugEnabled: debugEnabled, type: SessionObject.self, with: request)
+   }
+
    // MARK: Vector Store
 
    func createVectorStore(

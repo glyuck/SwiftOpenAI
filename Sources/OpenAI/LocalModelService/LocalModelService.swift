@@ -262,7 +262,11 @@ struct LocalModelService: OpenAIService {
    func listBatch(after: String?, limit: Int?) async throws -> OpenAIResponse<BatchObject> {
       fatalError("Currently, this API is not supported. We welcome and encourage contributions to our open-source project. Please consider opening an issue or submitting a pull request to add support for this feature.")
    }
-   
+
+   func createSession(parameters: CreateSessionParameters) async throws -> SessionObject {
+      fatalError("Currently, this API is not supported. We welcome and encourage contributions to our open-source project. Please consider opening an issue or submitting a pull request to add support for this feature.")
+   }
+
    func createVectorStore(parameters: VectorStoreParameter) async throws -> VectorStoreObject {
       fatalError("Currently, this API is not supported. We welcome and encourage contributions to our open-source project. Please consider opening an issue or submitting a pull request to add support for this feature.")
    }

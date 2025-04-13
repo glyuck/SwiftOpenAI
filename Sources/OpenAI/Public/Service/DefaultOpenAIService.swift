@@ -634,7 +634,17 @@ struct DefaultOpenAIService: OpenAIService {
       let request = try OpenAIAPI.batch(.list).request(apiKey: apiKey, openAIEnvironment: openAIEnvironment, organizationID: organizationID, method: .get, queryItems: queryItems, extraHeaders: extraHeaders)
       return try await fetch(debugEnabled: debugEnabled, type: OpenAIResponse<BatchObject>.self, with: request)
    }
-   
+
+   // MARK: Session
+
+   func createSession(
+      parameters: CreateSessionParameters)
+      async throws -> SessionObject
+   {
+      let request = try OpenAIAPI.session(.create).request(apiKey: apiKey, openAIEnvironment: openAIEnvironment, organizationID: organizationID, method: .post, params: parameters, betaHeaderField: Self.assistantsBetaV2, extraHeaders: extraHeaders)
+      return try await fetch(debugEnabled: debugEnabled, type: SessionObject.self, with: request)
+   }
+
    // MARK: Vector Store
 
    func createVectorStore(

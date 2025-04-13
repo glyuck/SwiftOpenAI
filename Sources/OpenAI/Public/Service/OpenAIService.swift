@@ -757,7 +757,20 @@ public protocol OpenAIService {
       after: String?,
       limit: Int?)
       async throws -> OpenAIResponse<BatchObject>
-   
+
+   // MARK: Session
+
+   /// Create a session.
+   ///
+   /// - Parameter parameters: The parameters needed to create a session.
+   /// - Returns: A [Session](https://platform.openai.com/docs/api-reference/realtime-sessions) object.
+   /// - Throws: An error if the request fails
+   ///
+   /// For more information, refer to [OpenAI's Session API documentation](https://platform.openai.com/docs/api-reference/realtime-sessions/create).
+   func createSession(
+      parameters: CreateSessionParameters)
+      async throws -> SessionObject
+
    // MARK: Vector Store
    
    /// Create a vector store.
